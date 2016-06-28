@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wrapper_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_view_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_profile_image"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom="1dp"
+        tools:src="@drawable/nicolas_cage" />
+    <!--Add 1dp bottom padding to remove weird flickering while animating-->
+    <View
+        android:id="@+id/view_avatar_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_profile_image" />
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_view_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        tools:text="RICHARD" />
+
+    <TextView
+        android:id="@+id/text_view_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_name"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        tools:text="@string/lorem_ipsum_short" />
+
+    <!--  ListView中有按钮时，会使子项的onItemClick事件无效，如果onItemClick不能触发，在ListView子项目布局文件中的根控件中添加
+      android:descendantFocusability="blocksDescendants"
+      就好了-->
+
+    <LinearLayout
+        android:id="@+id/ll_but"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_description"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_add_friend"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:background="@drawable/user_add_bg_selector"
+            android:text="@string/add_friend"
+            android:textColor="@color/base_color_text_white" />
+
+        <Button
+            android:id="@+id/btn_chat"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/user_add_bg_selector"
+            android:text="@string/chat"
+            android:textColor="@color/base_color_text_white" />
+    </LinearLayout>
+</RelativeLayout>

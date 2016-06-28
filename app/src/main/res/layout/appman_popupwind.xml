@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_margin="20dp"
+    android:background="@drawable/input_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ll_copy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="复制"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@mipmap/base_horization_line" />
+
+    <TextView
+        android:id="@+id/ll_delete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="删除"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@mipmap/base_horization_line" />
+
+    <TextView
+        android:id="@+id/ll_cancle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="取消"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+</LinearLayout>

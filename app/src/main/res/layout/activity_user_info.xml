@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/temp_bg" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_navi" />
+
+        <RelativeLayout
+            android:id="@+id/layout_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#01000000">
+
+            <ImageView
+                android:id="@+id/iv_avator"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/head" />
+
+            <ImageView
+                android:id="@+id/edit_bg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:visibility="gone" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:progressBarStyleHorizontal"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_avator"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/linerlayout"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/layout_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/style_text_white"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:minWidth="20dp"
+                    android:text="帐号"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_id"
+                    style="@style/style_text_white"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:height="40dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/base_color_text_white" />
+
+            <RelativeLayout
+                android:id="@+id/layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/style_text_white"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:minWidth="20dp"
+                    android:text="昵称"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/tv_name"
+                    style="@style/style_text_white"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:height="40dp"
+                    android:drawablePadding="10dp"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/base_color_text_white" />
+
+            <RelativeLayout
+                android:id="@+id/layout_tm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/style_text_white"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="院系"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_tm"
+                    style="@style/style_text_white"
+                    android:layout_width="250dp"
+                    android:layout_centerInParent="true"
+                    android:height="40dp"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/base_color_text_white" />
+
+            <RelativeLayout
+                android:id="@+id/layout_sex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/style_text_white"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="性别"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_sex"
+                    style="@style/style_text_white"
+                    android:layout_width="250dp"
+                    android:layout_centerInParent="true"
+                    android:height="40dp"
+                    android:clickable="false"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/base_color_text_white" />
+
+
+            <Button
+                android:id="@+id/btn_edit"
+                style="@style/style_text_white"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/base_horizontal_line_red"
+                android:text="确定修改"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_add_friend"
+                    style="@style/style_text_white"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/user_add_bg_selector"
+                    android:text="@string/add_friend" />
+
+                <Button
+                    android:id="@+id/btn_chat"
+                    style="@style/style_text_white"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/user_add_bg_selector"
+                    android:text="@string/chat" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#73316269"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="正在上传中..."
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+
+            />
+    </LinearLayout>
+
+
+</FrameLayout>

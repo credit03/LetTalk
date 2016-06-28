@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg"
+    android:orientation="vertical">
+    <include layout="@layout/include_navi"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/height_title"
+            android:background="@color/transparent"
+            android:drawablePadding="25dip"
+            android:hint="手机号码"
+            android:paddingLeft="15dip"
+            android:shadowDx="0.0"
+            android:shadowDy="1.0"
+            android:shadowRadius="1.0"
+            android:textColorHint="#ffdddddd" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@mipmap/base_horization_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            >
+
+            <EditText
+                android:id="@+id/et_vrify"
+                android:layout_weight="1.0"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_title"
+                android:background="@color/transparent"
+                android:drawablePadding="25dip"
+                android:paddingLeft="15dip"
+                android:shadowDx="0.0"
+                android:shadowDy="1.0"
+                android:shadowRadius="1.0"
+                android:textColorHint="#ffdddddd"
+                android:hint="填写验证码"
+                />
+
+            <Button
+                android:id="@+id/but_verify"
+                android:layout_weight="0.3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:background="@drawable/btn_login_selector"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="@color/base_color_text_white"
+                android:textSize="@dimen/text_size_large" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@mipmap/base_horization_line" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_title"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:background="@drawable/btn_onclick_selector"
+            android:gravity="center"
+            android:text="下一步"
+            android:enabled="false"
+            android:textColor="@color/base_color_text_white"
+            android:textSize="@dimen/text_size_large" />
+    </LinearLayout>
+
+
+</LinearLayout>

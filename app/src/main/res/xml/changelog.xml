@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release
+        version="1.0-2016-6-21"
+        versioncode="1.0">
+        <change>初版</change>
+        <change>/\n</change>
+        <change>使用BMOB后端云提供服务器</change>
+        <change>使用微博SDK授权登录</change>
+        <change>使用BMOB IM-SDK2.0实现即时通讯</change>
+        <change>使用Android studio重新构造</change>
+        <change>bug存在明显，欢迎反馈</change>
+    </release>
+
+</changelog>
