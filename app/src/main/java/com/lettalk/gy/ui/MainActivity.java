@@ -1,8 +1,6 @@
 package com.lettalk.gy.ui;
 
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -448,13 +446,15 @@ public class MainActivity extends BaseActivity implements ObseverListener {
 
     }
 
+    private long lasttime = 0;
+
 
     @Override
     public void onBackPressed() {
         if (is_contacts) {
             back_upPage(1);
         } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+           /* AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("是否退出").setIcon(R.mipmap.ic_launcher).setPositiveButton("确定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -463,7 +463,14 @@ public class MainActivity extends BaseActivity implements ObseverListener {
                 }
             });
             builder.setNegativeButton("取消", null);
-            builder.show();
+            builder.show();*/
+
+            if (lasttime == 0 || lasttime+2*1000 < System.currentTimeMillis()) {
+                toast("再次点击退出");
+                lasttime = System.currentTimeMillis();
+            } else {
+                MainActivity.super.onBackPressed();
+            }
 
         }
     }

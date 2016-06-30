@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_all"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/theme_bg_color"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/include_navi" />
 
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector"
         android:minHeight="50dp"
-        android:padding="10dp" >
+        android:padding="10dp">
 
         <TextView
             style="@style/style_text_black"
@@ -31,20 +32,19 @@
             android:drawableRight="@mipmap/register_bottom_arrow" />
     </RelativeLayout>
 
-     <View
+    <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:background="@drawable/base_horizontal_line" >
-    </View>
-    
+        android:background="@drawable/base_horizontal_line"></View>
+
     <RelativeLayout
         android:id="@+id/layout_blacklist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:background="@drawable/btn_selector"
         android:minHeight="50dp"
-        android:padding="10dp" >
+        android:padding="10dp"
+        android:visibility="gone">
 
         <TextView
             style="@style/style_text_black"
@@ -60,21 +60,20 @@
             android:drawablePadding="10dp"
             android:drawableRight="@mipmap/register_bottom_arrow" />
     </RelativeLayout>
-    
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:visibility="gone"
-        android:background="@drawable/base_horizontal_line" >
-    </View>
+        android:background="@drawable/base_horizontal_line"
+        android:visibility="gone"></View>
 
     <RelativeLayout
         android:id="@+id/rl_switch_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:background="@drawable/btn_selector"
-        android:padding="10dip" >
+        android:padding="10dip"
+        android:visibility="gone">
 
         <TextView
             style="@style/style_text_black"
@@ -107,17 +106,16 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:visibility="gone"
-        android:background="@drawable/base_horizontal_line" >
-    </View>
+        android:background="@drawable/base_horizontal_line"
+        android:visibility="gone"></View>
 
     <RelativeLayout
         android:id="@+id/rl_switch_voice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:background="@drawable/btn_selector"
-        android:padding="10dip" >
+        android:padding="10dip"
+        android:visibility="gone">
 
         <TextView
             style="@style/style_text_black"
@@ -151,17 +149,16 @@
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:visibility="gone"
-        android:background="@drawable/base_horizontal_line" >
-    </View>
+        android:background="@drawable/base_horizontal_line"
+        android:visibility="gone"></View>
 
     <RelativeLayout
         android:id="@+id/rl_switch_vibrate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:background="@drawable/btn_selector"
-        android:padding="10dip" >
+        android:padding="10dip"
+        android:visibility="gone">
 
         <TextView
             style="@style/style_text_black"
@@ -195,9 +192,8 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:visibility="gone"
-        android:background="@drawable/base_horizontal_line" >
-    </View>
+        android:background="@drawable/base_horizontal_line"
+        android:visibility="gone"></View>
 
     <Button
         android:id="@+id/btn_logout"
@@ -205,6 +201,7 @@
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:text="@string/logout" />
+        android:text="@string/logout"
+        android:visibility="gone" />
 
 </LinearLayout>

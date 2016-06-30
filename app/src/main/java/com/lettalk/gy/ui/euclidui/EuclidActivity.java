@@ -61,6 +61,7 @@ public abstract class EuclidActivity extends Activity {
     protected static final String PERSONALIZED = "Personalized";
     protected static final String ISCURRENTID = "currentId";
     protected static final String ISFRIEND = "isfriend";
+    private static final String TAG = "EuclidActivity";
 
     protected RelativeLayout mWrapper;
     protected ListView mListView;
@@ -79,6 +80,7 @@ public abstract class EuclidActivity extends Activity {
     private ViewAnimator mListViewAnimator;
 
     protected View mOverlayListItemView;
+
     private EuclidState mState = EuclidState.Closed;
 
     private float mInitialProfileButtonX;
@@ -175,6 +177,7 @@ public abstract class EuclidActivity extends Activity {
             mListViewAnimator.disableAnimations();
         }
         mListView.setAdapter(mListViewAnimationAdapter);
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -388,6 +391,7 @@ public abstract class EuclidActivity extends Activity {
             mProfileButtonShowAnimation.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
+
                     if (userInfoMap.get(ISCURRENTID).equals("TRUE"))
                         mButtonProfile.setVisibility(View.VISIBLE);
                 }
@@ -433,8 +437,9 @@ public abstract class EuclidActivity extends Activity {
             public void onAnimationEnd(Animator animation) {
                 if (userInfoMap.get(ISCURRENTID).equals("TRUE")) {
                     mButtonProfile.startAnimation(mProfileButtonShowAnimation);
-                    mState = EuclidState.Opened;
+                    //  mState = EuclidState.Opened;
                 }
+                mState = EuclidState.Opened;
 
             }
 
@@ -575,10 +580,14 @@ public abstract class EuclidActivity extends Activity {
 
     @Override
     public void onBackPressed() {
+
         if (getState() == EuclidState.Opened) {
             animateCloseProfileDetails();
+
         } else if (getState() == EuclidState.Closed) {
             super.onBackPressed();
+
+
         }
     }
 

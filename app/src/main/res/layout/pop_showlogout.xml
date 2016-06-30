@@ -2,51 +2,57 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88000000" >
+    android:background="#88000000">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/pop_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/layout_photo"
+            android:id="@+id/layout_about"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:clickable="true" >
+            android:clickable="true">
 
             <TextView
-                style="@style/style_text_black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_margin="10dp"
                 android:drawablePadding="20dp"
                 android:gravity="center"
-                android:text="@string/pop_photo" />
+                android:text="关于"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@drawable/base_horizontal_line" >
-        </View>
+            android:background="@drawable/base_horizontal_line"></View>
 
         <RelativeLayout
-            android:id="@+id/layout_choose"
+            android:id="@+id/layout_logout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:clickable="true" >
+            android:background="@android:color/holo_red_dark"
+            android:clickable="true">
 
             <TextView
-                style="@style/style_text_black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_margin="10dp"
                 android:drawablePadding="20dp"
                 android:gravity="center"
-                android:text="@string/pop_choose" />
+                android:text="退出"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </RelativeLayout>
     </LinearLayout>
 

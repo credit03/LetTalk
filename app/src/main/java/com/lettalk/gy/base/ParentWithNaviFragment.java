@@ -108,6 +108,9 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
         tv_right.setBackgroundColor(Color.RED);
     }
 
+
+
+
     public void rebackRight() {
         setRi = false;
         setValue(R.id.tv_right, null);
@@ -142,7 +145,6 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
     public Object left() {
         return null;
     }
-
 
 
     /**
