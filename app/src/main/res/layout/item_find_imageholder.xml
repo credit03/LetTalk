@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <com.lettalk.gy.ui.view.animationui.BlurLayout
+        android:id="@+id/blur_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/source"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/php" />
+    </com.lettalk.gy.ui.view.animationui.BlurLayout>
+
+
+    <com.lettalk.gy.ui.view.animationui.BlurLayout
+        android:id="@+id/blur_layout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blur_layout"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/source2"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_below="@+id/source"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/image2" />
+    </com.lettalk.gy.ui.view.animationui.BlurLayout>
+
+    <com.lettalk.gy.ui.view.animationui.BlurLayout
+        android:id="@+id/blur_layout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blur_layout2"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/source3"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_below="@+id/source"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/strawberries" />
+    </com.lettalk.gy.ui.view.animationui.BlurLayout>
+
+    <com.lettalk.gy.ui.view.animationui.BlurLayout
+        android:id="@+id/blur_layout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blur_layout3"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/source4"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_below="@+id/source"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/kid" />
+    </com.lettalk.gy.ui.view.animationui.BlurLayout>
+</RelativeLayout>

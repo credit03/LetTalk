@@ -197,6 +197,7 @@ public class ConversationFragment extends ParentWithNaviFragment implements Inte
                                                   log("两种方式均可以删除会话deleteConversation  BY VIEW   " + position);
                                                   //以下两种方式均可以删除会话
 //                                              BmobIM.getInstance().deleteConversation(adapter.getItem(position).getConversationId());
+                                                  clearItemSelect();
                                                   BmobIM.getInstance().deleteConversation(adapter.getItem(position));
                                                   adapter.remove(position);
                                                   adapter.notifyDataSetChanged();
@@ -363,6 +364,8 @@ public class ConversationFragment extends ParentWithNaviFragment implements Inte
      */
     @Subscribe
     public void onEventMainThread(MessageEvent event) {
+
+
         //重新获取本地消息并刷新列表
         adapter.bindDatas(BmobIM.getInstance().loadAllConversation());
         adapter.notifyDataSetChanged();
@@ -373,6 +376,8 @@ public class ConversationFragment extends ParentWithNaviFragment implements Inte
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
+
 
     @Override
     public void clearItemSelect() {

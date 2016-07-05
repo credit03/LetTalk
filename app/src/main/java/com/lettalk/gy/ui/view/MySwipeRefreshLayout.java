@@ -27,17 +27,19 @@ public class MySwipeRefreshLayout extends SwipeRefreshLayout {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mPrevY = event.getX();
+                mPrevY = event.getY();
                 break;
 
-            case MotionEvent.ACTION_MOVE:
-                final float eventX = event.getX();
-                float xDiff = Math.abs(eventX - mPrevY);
+            case MotionEvent.ACTION_UP:
+                final float eventY = event.getY();
+                float xDiff = Math.abs(eventY - mPrevY);
                 // Log.d("refresh" ,"move----" + eventX + "   " + mPrevY + "   " + mTouchSlop);
                 // 增加60的容差，让下拉刷新在竖直滑动时就可以触发
-                if (xDiff > mTouchSlop + 60) {
+                if (xDiff < mTouchSlop + 500) {
                     return false;
                 }
+
+                break;
         }
 
         return super.onInterceptTouchEvent(event);

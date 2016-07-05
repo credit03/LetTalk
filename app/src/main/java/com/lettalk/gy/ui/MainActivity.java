@@ -290,15 +290,6 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     }
 
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void goToContacts() {
-        onTabIndex(3);
-        mTabs[1].setText("联系人(点击返回会话)");
-        Drawable top = getResources().getDrawable(R.drawable.tab_contact_btn, null);
-        top.setBounds(0, 0, top.getMinimumWidth(), top.getMinimumHeight());
-        mTabs[1].setCompoundDrawables(null, top, null, null);
-    }
-
     private boolean is_contacts = false;
 
     private void onTabIndex(int index) {
@@ -326,6 +317,8 @@ public class MainActivity extends BaseActivity implements ObseverListener {
             if (!fragments[index].isAdded()) {
                 trx.add(R.id.fragment_container, fragments[index]);
             }
+
+            checkRedPoint();
             /**
              * 显示会话
              */
@@ -441,10 +434,26 @@ public class MainActivity extends BaseActivity implements ObseverListener {
      */
 
     public void back_upPage(int pageIndex) {
+
+        checkRedPoint();
         setButtonTheme(pageIndex);
         onTabIndex(pageIndex);
 
     }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void goToContacts() {
+        /**
+         * 关闭小红点
+         */
+        iv_conversation_tips.setVisibility(View.GONE);
+        onTabIndex(3);
+        mTabs[1].setText("联系人(点击返回会话)");
+        Drawable top = getResources().getDrawable(R.drawable.tab_contact_btn);
+        top.setBounds(0, 0, top.getMinimumWidth(), top.getMinimumHeight());
+        mTabs[1].setCompoundDrawables(null, top, null, null);
+    }
+
 
     private long lasttime = 0;
 
@@ -465,7 +474,7 @@ public class MainActivity extends BaseActivity implements ObseverListener {
             builder.setNegativeButton("取消", null);
             builder.show();*/
 
-            if (lasttime == 0 || lasttime+2*1000 < System.currentTimeMillis()) {
+            if (lasttime == 0 || lasttime + 2 * 1000 < System.currentTimeMillis()) {
                 toast("再次点击退出");
                 lasttime = System.currentTimeMillis();
             } else {

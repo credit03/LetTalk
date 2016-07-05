@@ -1,7 +1,6 @@
 package com.lettalk.gy.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import com.lettalk.gy.R;
 import com.lettalk.gy.bean.User;
-import com.lettalk.gy.ui.UserInfoAcivityPro;
 import com.lettalk.gy.util.ViewUtil;
 
 import butterknife.Bind;
@@ -35,12 +33,18 @@ public class SearchUserHolder extends BaseViewHolder {
         ViewUtil.setAvatar(user.getAvatar(), R.mipmap.head, avatar);
 
         name.setText(user.getNickname());
+
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//查看个人详情
-                Bundle bundle = new Bundle();
+
+                if (onRecyclerViewListener != null) {
+                    onRecyclerViewListener.onItemClick(getAdapterPosition());
+                }
+
+               /* Bundle bundle = new Bundle();
                 bundle.putSerializable("u", user);
-                startActivity(UserInfoAcivityPro.class, bundle);
+                startActivity(UserInfoAcivityPro.class, bundle);*/
             }
         });
     }

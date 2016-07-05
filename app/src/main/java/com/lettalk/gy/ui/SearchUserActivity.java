@@ -44,9 +44,25 @@ public class SearchUserActivity extends ParentWithNaviActivity {
     LinearLayoutManager layoutManager;
     SearchUserAdapter adapter;
 
+    public static SearchUserActivity getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(SearchUserActivity instance) {
+        SearchUserActivity.instance = instance;
+    }
+
+    private static SearchUserActivity instance;
+
+
     @Override
     protected String title() {
         return "搜索好友";
+    }
+
+    public void finish() {
+        setInstance(null);
+        super.finish();
     }
 
     @Override
@@ -54,6 +70,7 @@ public class SearchUserActivity extends ParentWithNaviActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
         initNaviView();
+        setInstance(this);
         adapter = new SearchUserAdapter();
         layoutManager = new LinearLayoutManager(this);
         rc_view.setLayoutManager(layoutManager);
@@ -65,11 +82,35 @@ public class SearchUserActivity extends ParentWithNaviActivity {
                 query();
             }
         });
+
         adapter.setOnRecyclerViewListener(new OnRecyclerImp() {
             @Override
             public void onItemClick(int position) {
                 Bundle bundle = new Bundle();
                 User user = adapter.getItem(position);
+                /**
+                 * 处理显示昵称，不要显示UserName字段，如果是微博授权 UserName字段则是一串16进制数，第一次登录获取微博昵称
+
+                 User u = LetTalkApplication.INSTANCE().getUser(user.getObjectId());
+                 if (u != null) {
+                 user.setUsername(u.getNickname());
+                 } else {
+
+                 log("处理显示昵称 微博授权。。。。");
+                 Oauth2AccessToken oauth2AccessToken = AccessTokenKeeper.readAccessToken(SearchUserActivity.this);
+                 UsersAPI usersAPI = new UsersAPI(SearchUserActivity.this, Constants.APP_KEY, oauth2AccessToken);
+                 usersAPI.show(user.getUsername(), new RequestListener() {
+                @Override public void onComplete(String s) {
+                log("返回结果：" + s);
+                }
+
+                @Override public void onWeiboException(WeiboException e) {
+                log("返回结果：" + e.getMessage());
+                }
+                });
+                 }
+                 */
+
                 bundle.putSerializable("u", user);
                 // startActivity(UserInfoActivity.class, bundle, false);
                 startActivity(UserInfoAcivityPro.class, bundle, false);
@@ -116,5 +157,6 @@ public class SearchUserActivity extends ParentWithNaviActivity {
             }
         });
     }
+
 
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<version>
+    <release
+        version="1.0-2016-6-21"
+        versioncode="1.0">
+        <change>初版</change>
+        <change>本应用由credit开发，以学习为主</change>
+        <change>本应用由Bmob IM2.0修改，使用BMOB提供的技术，使用微博SDK实行登录授权，使用BMOB后端云技术实现数据后台</change>
+    </release>
+</version>

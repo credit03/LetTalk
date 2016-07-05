@@ -1,7 +1,6 @@
 package com.lettalk.gy.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -57,7 +56,6 @@ public class ReceiveTextHolder extends BaseViewHolder {
         iv_avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "点击" + info.getName() + "的头像");
                 QueryUserInfo(c);
             }
         });
@@ -87,7 +85,8 @@ public class ReceiveTextHolder extends BaseViewHolder {
     public void showTime(boolean isShow) {
         tv_time.setVisibility(isShow ? View.VISIBLE : View.GONE);
     }
-    public String getMsgText(){
-        return  tv_message.getText().toString();
+
+    public String getMsgText() {
+        return tv_message.getText().toString();
     }
 }

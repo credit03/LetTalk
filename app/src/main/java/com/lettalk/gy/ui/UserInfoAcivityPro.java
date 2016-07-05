@@ -84,13 +84,14 @@ public class UserInfoAcivityPro extends EuclidActivity implements EuclidItemButC
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         user = (User) getBundle().getSerializable("u");
+
         cruuentId = BmobUser.getCurrentUser(this, User.class);
         initMap(user);
         super.onCreate(savedInstanceState);
 
         initData();
-
     }
+
 
     @Override
     public void initData() {
@@ -389,10 +390,20 @@ public class UserInfoAcivityPro extends EuclidActivity implements EuclidItemButC
 
     public void onChatClick(View view) {
         //启动一个会话，设置isTransient设置为false,则会在本地数据库的会话列表中先创建（如果没有）与该用户的会话信息，且将用户信息存储到本地的用户表中
+        info.setName(user.getNickname());
         BmobIMConversation c = BmobIM.getInstance().startPrivateConversation(info, false, null);
+        if (!user.getObjectId().equals(cruuentId.getObjectId())) {
+            c.setConversationTitle(user.getNickname());
+        }
+
         Bundle bundle = new Bundle();
         bundle.putSerializable("c", c);
+
+        if (SearchUserActivity.getInstance() != null) {
+            SearchUserActivity.getInstance().finish();
+        }
         startActivity(ChatActivity.class, bundle, true);
+
     }
 
 

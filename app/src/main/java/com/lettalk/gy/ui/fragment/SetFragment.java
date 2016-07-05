@@ -1,12 +1,12 @@
 package com.lettalk.gy.ui.fragment;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -19,8 +19,15 @@ import com.lettalk.gy.base.ParentWithNaviActivity;
 import com.lettalk.gy.base.ParentWithNaviFragment;
 import com.lettalk.gy.bean.User;
 import com.lettalk.gy.model.UserModel;
+import com.lettalk.gy.ui.AboutActivity;
 import com.lettalk.gy.ui.LoginActivity;
 import com.lettalk.gy.ui.UserInfoAcivityPro;
+import com.lettalk.gy.util.sina.AccessTokenKeeper;
+import com.lettalk.gy.util.sina.Constants;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.openapi.LogoutAPI;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -108,6 +115,23 @@ public class SetFragment extends ParentWithNaviFragment implements ParentWithNav
 
     @OnClick(R.id.btn_logout)
     public void onLogoutClick(View view) {
+
+        Oauth2AccessToken oauth2AccessToken = AccessTokenKeeper.readAccessToken(getActivity());
+        if (oauth2AccessToken.isSessionValid()) {
+            LogoutAPI api = new LogoutAPI(getActivity(), Constants.APP_KEY, oauth2AccessToken);
+            api.logout(new RequestListener() {
+                @Override
+                public void onComplete(String s) {
+                    AccessTokenKeeper.clear(getActivity());
+                }
+
+                @Override
+                public void onWeiboException(WeiboException e) {
+
+                }
+            });
+        }
+
         UserModel.getInstance().logout();
         //可断开连接
         BmobIM.getInstance().disConnect();
@@ -128,7 +152,7 @@ public class SetFragment extends ParentWithNaviFragment implements ParentWithNav
 
     RelativeLayout layout_about;
     RelativeLayout layout_logout;
-    PopupWindow avatorPop;
+    PopupWindow mroePop;
 
 
     @SuppressWarnings("deprecation")
@@ -141,13 +165,11 @@ public class SetFragment extends ParentWithNaviFragment implements ParentWithNav
 
             @Override
             public void onClick(View v) {
-           /*     // TODO Auto-generated method stub
-                layout_choose.setBackgroundColor(getResources().getColor(
-                        R.color.base_color_text_white));*/
                 layout_about.setBackgroundColor(getResources().getColor(
                         R.color.base_color_text_white));
                 layout_logout.setBackgroundDrawable(getResources().getDrawable(
                         R.drawable.pop_bg_press));
+                mroePop.dismiss();
                 onLogoutClick(v);
             }
         });
@@ -160,29 +182,18 @@ public class SetFragment extends ParentWithNaviFragment implements ParentWithNav
                         android.R.color.holo_red_dark));
                 layout_about.setBackgroundDrawable(getResources().getDrawable(
                         R.drawable.pop_bg_press));
+                mroePop.dismiss();
+
+                startActivity(AboutActivity.class, null);
             }
         });
 
 
-        avatorPop = new PopupWindow(view, mScreenWidth, 600);
-        avatorPop.setTouchInterceptor(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                    avatorPop.dismiss();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        avatorPop.setWidth(RelativeLayout.LayoutParams.MATCH_PARENT);
-        avatorPop.setHeight(RelativeLayout.LayoutParams.WRAP_CONTENT);
-        avatorPop.setTouchable(true);
-        avatorPop.setFocusable(true);
-        avatorPop.setOutsideTouchable(true);
-        avatorPop.setBackgroundDrawable(new BitmapDrawable());
-        avatorPop.showAtLocation(ll_all, Gravity.BOTTOM, 0, 0);
+        mroePop = new PopupWindow(view, mScreenWidth, 300);
+        mroePop.setFocusable(true);
+        mroePop.setBackgroundDrawable(new ColorDrawable(
+                Color.TRANSPARENT));
+        mroePop.showAtLocation(ll_all, Gravity.BOTTOM, 0, 0);
     }
 
     @Override

@@ -380,7 +380,6 @@ public class LoginActivity extends BaseActivity {
     public void sinaLoginClick(View v) {
         mAuthInfo = new AuthInfo(this, Constants.APP_KEY,
                 Constants.REDIRECT_URL, Constants.SCOPE);
-
         // 快速授权时，请不要传入 SCOPE，否则可能会授权不成功
         mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         mSsoHandler = new SsoHandler(LoginActivity.this, mAuthInfo);
@@ -423,8 +422,6 @@ public class LoginActivity extends BaseActivity {
 
                     @Override
                     public void onSuccess(JSONObject userAuth) {
-
-
                         toast("第三方登陆授权成功");
                         Log.i("smile", authInfo.getSnsType() + "登陆成功返回:" + userAuth.toString());
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
