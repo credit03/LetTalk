@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.lettalk.gy"
@@ -12,6 +13,7 @@ android {
         versionName "1.0"
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
+
     }
 
 
@@ -75,6 +77,7 @@ dependencies {
     compile('com.android.support:appcompat-v7:23.1.1') {
         exclude module: 'support-annotations'
     }
+
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.orhanobut:logger:1.4'

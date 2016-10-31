@@ -1,4 +1,4 @@
-package com.lettalk.gy.model.i;
+package com.lettalk.gy.model.lisetener;
 
 import com.lettalk.gy.bean.WeiBoBean;
 

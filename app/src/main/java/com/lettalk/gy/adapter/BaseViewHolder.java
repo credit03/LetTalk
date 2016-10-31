@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.lettalk.gy.base.BaseActivity;
 import com.lettalk.gy.bean.User;
 import com.lettalk.gy.model.UserModel;
-import com.lettalk.gy.model.i.QueryUserListener;
+import com.lettalk.gy.model.lisetener.QueryUserListener;
 import com.lettalk.gy.ui.UserInfoAcivityPro;
 
 import butterknife.ButterKnife;

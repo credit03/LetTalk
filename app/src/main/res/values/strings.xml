@@ -62,4 +62,7 @@
     <string name="changelog_close">关闭</string>
     <string name="click_to_top_tip">点击空白区域直接返回顶部</string>
 
+    <string name="test_content">Android 是目前最流行的移动操作系统之一。 随着新版本的不断发布， Android的功能也日益强大， 涌现了很多流行的应用程序， 也催生了一大批的优秀的组件。
+本文试图将目前流行的组件收集起来以供参考， 如果你发现本文还没有列出的组件，欢迎在评论中贴出来，我会定期的更新本文。</string>
+
 </resources>

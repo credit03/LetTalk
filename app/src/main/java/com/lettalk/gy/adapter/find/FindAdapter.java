@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.lettalk.gy.adapter.BaseViewHolder;
 import com.lettalk.gy.adapter.OnRecyclerViewListener;
-import com.lettalk.gy.bean.User;
+import com.lettalk.gy.bean.Post;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +33,17 @@ public class FindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //单张gif图像和内容
     private final int TYPE_TEXT_GIF = 5;
 
-    private List<User> users = new ArrayList<User>();
+    private List<Post> posts = new ArrayList<Post>();
 
     public FindAdapter() {
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.i(TAG, "onCreateViewHolder: 方法");
+
+        if (viewType == TYPE_TEXT_CONTENT) {
+            return new FindTextHoder(parent.getContext(), parent, onRecyclerViewListener);
+        }
         return new FindImageHolder(parent.getContext(), parent, onRecyclerViewListener);
     }
 
@@ -59,10 +62,10 @@ public class FindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-
-        if (position == 0) {
-            return TYPE_TEXT_CONTENT;
+        if (getItem(position).getHaveimage()) {
+            return TYPE_TEXT_MOREIMAGE_CONTENT;
         }
+
         return TYPE_GIFIAMGE;
 
 
@@ -71,10 +74,10 @@ public class FindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /**
      * @param list
      */
-    public void bindDatas(List<User> list) {
-        users.clear();
+    public void bindDatas(List<Post> list) {
+        posts.clear();
         if (null != list) {
-            users.addAll(list);
+            posts.addAll(list);
         }
     }
 
@@ -85,14 +88,14 @@ public class FindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
      * @param position
      */
     public void remove(int position) {
-        users.remove(position);
+        posts.remove(position);
         notifyDataSetChanged();
     }
 
-    public User getItem(int position) {
+    public Post getItem(int position) {
 
         Log.i(TAG, "getItem: 获取User" + position);
-        return users.get(position);
+        return posts.get(position);
     }
 
 
@@ -106,7 +109,7 @@ public class FindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
 
-        Log.i(TAG, "getItemCount: 获取总数" + users.size());
-        return users.size();
+        Log.i(TAG, "getItemCount: 获取总数" + posts.size());
+        return posts.size();
     }
 }

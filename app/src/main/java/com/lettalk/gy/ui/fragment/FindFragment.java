@@ -13,7 +13,10 @@ import com.lettalk.gy.adapter.OnRecyclerImp;
 import com.lettalk.gy.adapter.find.FindAdapter;
 import com.lettalk.gy.base.ParentWithNaviActivity;
 import com.lettalk.gy.base.ParentWithNaviFragment;
+import com.lettalk.gy.bean.FindBag;
+import com.lettalk.gy.bean.Post;
 import com.lettalk.gy.bean.User;
+import com.lettalk.gy.model.FindModel;
 import com.lettalk.gy.ui.view.MySwipeRefreshLayout;
 
 import java.util.ArrayList;
@@ -21,6 +24,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by Administrator on 2016-05-31.
@@ -70,6 +76,8 @@ public class FindFragment extends ParentWithNaviFragment {
         return rootView;
     }
 
+    int page = 0;
+
     @Override
     public ParentWithNaviActivity.ToolBarListener setToolBarListener() {
         return new ParentWithNaviActivity.ToolBarListener() {
@@ -80,8 +88,23 @@ public class FindFragment extends ParentWithNaviFragment {
 
             @Override
             public void clickRight() {
+                FindModel.getInstance().QueryPostList(0, 0, getActivity(), new FindListener<FindBag>() {
+                    @Override
+                    public void onSuccess(List<FindBag> list) {
+                        toast("Post ID" + list.get(0).getPost().getObjectId() + "内容：" + list.get(0).getPost().getContent());
+                        for (FindBag bag : list) {
+                            log("Post ID" + bag.getPost().getObjectId() + "内容：" + bag.getPost().getContent());
 
+                        }
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+
+                    }
+                });
             }
+
         };
     }
 
@@ -118,7 +141,23 @@ public class FindFragment extends ParentWithNaviFragment {
         adapter.setOnRecyclerViewListener(new OnRecyclerImp() {
             @Override
             public void onItemClick(int position) {
+                log("点击啦+" + position);
+                User user = BmobUser.getCurrentUser(getContext(), User.class);
+                FindModel.getInstance().BindPostOneTone("很久没有写东西了，一来是因为项目紧，没有多少时间，二来是因为最近越来越懒了。。。。\n" +
+                        "\n" +
+                        "　　今天说说数据库的分页显示问题，都是些自己在项目中碰到的问题，写在这里，留作以后复习用。。。。\n" +
+                        "\n" +
+                        "　　所谓数据库的分页显示，必须先要有一个数据库，先创建一个数据库。我这里用的是继承SQLiteOpenHelper的方法。具体如下：", user, getContext(), new SaveListener() {
+                    @Override
+                    public void onSuccess() {
+                        toast("发表成功");
+                    }
 
+                    @Override
+                    public void onFailure(int i, String s) {
+                        toast("发表失败" + i + s);
+                    }
+                });
             }
 
             @Override
@@ -139,8 +178,9 @@ public class FindFragment extends ParentWithNaviFragment {
     private void initData() {
 
         log("initData");
-        List<User> users = new ArrayList<>();
-        users.add(new User());
+        List<Post> users = new ArrayList<>();
+        users.add(new Post());
+        users.add(new Post());
         adapter.bindDatas(users);
         adapter.notifyDataSetChanged();
     }

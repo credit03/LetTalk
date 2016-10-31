@@ -1,4 +1,4 @@
-package com.lettalk.gy.model.i;
+package com.lettalk.gy.model.lisetener;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.BmobListener;

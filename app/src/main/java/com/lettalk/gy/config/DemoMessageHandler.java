@@ -15,7 +15,7 @@ import com.lettalk.gy.db.NewFriend;
 import com.lettalk.gy.db.NewFriendManager;
 import com.lettalk.gy.event.RefreshEvent;
 import com.lettalk.gy.model.UserModel;
-import com.lettalk.gy.model.i.UpdateCacheListener;
+import com.lettalk.gy.model.lisetener.UpdateCacheListener;
 import com.lettalk.gy.ui.MainActivity;
 import com.lettalk.gy.util.Util;
 import com.orhanobut.logger.Logger;

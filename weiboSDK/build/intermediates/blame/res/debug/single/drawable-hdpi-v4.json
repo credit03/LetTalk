@@ -32,12 +32,12 @@
         "source": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\src\\main\\res\\drawable-hdpi\\ic_com_sina_weibo_sdk_button_grey_focused.9.png"
     },
     {
-        "merged": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_login_with_account_text_pressed.png",
-        "source": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\src\\main\\res\\drawable-hdpi\\ic_com_sina_weibo_sdk_login_with_account_text_pressed.png"
-    },
-    {
         "merged": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png",
         "source": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\src\\main\\res\\drawable-hdpi\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png"
+    },
+    {
+        "merged": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_login_with_account_text_pressed.png",
+        "source": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\src\\main\\res\\drawable-hdpi\\ic_com_sina_weibo_sdk_login_with_account_text_pressed.png"
     },
     {
         "merged": "G:\\Android.CODE\\Studio Space\\LetTalk\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_login_with_account_text_focused.png",

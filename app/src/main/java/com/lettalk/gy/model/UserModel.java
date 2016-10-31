@@ -5,8 +5,8 @@ import android.text.TextUtils;
 
 import com.lettalk.gy.bean.Friend;
 import com.lettalk.gy.bean.User;
-import com.lettalk.gy.model.i.QueryUserListener;
-import com.lettalk.gy.model.i.UpdateCacheListener;
+import com.lettalk.gy.model.lisetener.QueryUserListener;
+import com.lettalk.gy.model.lisetener.UpdateCacheListener;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -63,16 +63,16 @@ public class UserModel extends BaseModel {
 
 
         user.login(getContext(), new SaveListener() {
-            @Override
-            public void onSuccess() {
-                listener.done(getCurrentUser(), null);
-            }
+                    @Override
+                    public void onSuccess() {
+                        listener.done(getCurrentUser(), null);
+                    }
 
-            @Override
-            public void onFailure(int i, String s) {
-                listener.done(user, new BmobException(i, s));
-            }
-        });
+                    @Override
+                    public void onFailure(int i, String s) {
+                        listener.done(user, new BmobException(i, s));
+                    }
+                });
     }
 
     /**

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.lettalk.gy.bean.WeiBoBean;
 import com.lettalk.gy.config.Config;
-import com.lettalk.gy.model.i.WeiBoInfoListener;
+import com.lettalk.gy.model.lisetener.WeiBoInfoListener;
 import com.lettalk.gy.util.GsonTools;
 import com.lettalk.gy.util.sina.Constants;
 import com.orhanobut.logger.Logger;

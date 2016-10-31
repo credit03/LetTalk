@@ -119,7 +119,6 @@ public class BmobSMSVrify extends ParentWithNaviActivity {
                 public void done(BmobException ex) {
                     // TODO Auto-generated method stub
                     if (ex == null) {//短信验证码已验证成功
-
                        /* Bundle bundle = new Bundle();
                         bundle.putString("phone", pnum);
                         startActivity(RegisterActivity.class, bundle, false);*/
@@ -128,9 +127,13 @@ public class BmobSMSVrify extends ParentWithNaviActivity {
                         startActivity(intent);
 
                     } else {
-                        btn_next.setEnabled(false);
+                        toast("输入认证码错误");
+
                     }
+                    btn_next.setEnabled(true);
                 }
+
+
             });
         }
 

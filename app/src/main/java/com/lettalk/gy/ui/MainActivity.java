@@ -17,7 +17,7 @@ import com.lettalk.gy.bean.User;
 import com.lettalk.gy.bean.WeiBoBean;
 import com.lettalk.gy.db.NewFriendManager;
 import com.lettalk.gy.event.RefreshEvent;
-import com.lettalk.gy.model.i.WeiBoInfoListener;
+import com.lettalk.gy.model.lisetener.WeiBoInfoListener;
 import com.lettalk.gy.ui.fragment.ContactFragment;
 import com.lettalk.gy.ui.fragment.ConversationFragment;
 import com.lettalk.gy.ui.fragment.FindFragment;

@@ -227,7 +227,7 @@ public class LoginActivity extends BaseActivity {
                 if (result == SMSSDK.RESULT_COMPLETE) {
                     @SuppressWarnings("unchecked")
                     HashMap<String, Object> phoneMap = (HashMap<String, Object>) data;
-                    String country = (String) phoneMap.get("country");
+                    String country = (String) phoneMap.get("country");//
                     String phone = (String) phoneMap.get("phone");
 
                     // 提交用户信息
